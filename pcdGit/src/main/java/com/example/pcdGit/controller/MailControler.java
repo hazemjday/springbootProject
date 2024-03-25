@@ -19,7 +19,7 @@ public class MailControler {
     @PostMapping("/send")
     public String getDogs(@RequestBody Mail mail){
         for (String e: mail.getEmails()){
-            emailSenderService.sendEmail(e, mail.getSubject(), mail.getMessage());
+            emailSenderService.sendEmail(mail.getFrom(), e, mail.getSubject(), mail.getMessage());
         }
         return "succss";
     }
